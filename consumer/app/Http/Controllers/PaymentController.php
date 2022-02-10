@@ -10,9 +10,14 @@ class PaymentController extends Controller
 {
 
     public function show(){
-        $q = new Queue('payments');
+        // Declare queue
+        $paymentsQueue = new Queue('payments');
+
+        // Consume callback function
         $func = function($data) { return $data; };
-        Amqp::consume($func,'',null,$q);
+
+        // Consume from queue
+        Amqp::consume($func,'',null,$paymentsQueue);
         return(["msg"=>"ok"]);
     }
 }
