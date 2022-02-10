@@ -12,10 +12,7 @@ Run `docker-compose up`
 
 ## RabbitMQ Dashboard
 
-Accessed on `localhost:15672`
-
-
-Create queue `payments` and bind it to `amq.direct` exchange
+Queued messages can be accessed on `localhost:15672/#/queues/payments`
 
 ## Producer
 
