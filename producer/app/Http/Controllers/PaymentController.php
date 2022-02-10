@@ -11,7 +11,8 @@ use Illuminate\Http\Request;
 class PaymentController extends Controller
 {
 
-		private function getDate($date){
+		// Convert date to timestamp
+		private function getUNIXTimesamp($date){
 			$d = DateTime::createFromFormat('d-m-Y H:i:s', $date);
 
 			if ($d === false) {
@@ -27,7 +28,7 @@ class PaymentController extends Controller
 
 			$parsed = [
 				"amount" =>$body["amount"],
-				"created_at"=>$this->getDate($body["timestamp"]),
+				"timestamp"=>$this->getUNIXTimesamp($body["created_at"]),
 				"account_number" =>$body["account_no"],
 				"user_id"=>$body["user_no"]
 			];

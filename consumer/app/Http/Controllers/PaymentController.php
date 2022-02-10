@@ -18,6 +18,8 @@ class PaymentController extends Controller
 
         // Consume from queue
         Amqp::consume($func,'',null,$paymentsQueue);
+
+        // Return response
         return(["msg"=>"ok"]);
     }
 }

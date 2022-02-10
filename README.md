@@ -28,7 +28,7 @@ Contains JSON string of data to be queued
 
 ```json
 {
-    "data":"{\"amount\":300,\"timestamp\":\"14-02-2022 20:10:57\",\"account_no\":39023093,\"user_no\":239391}"
+    "data":"{\"amount\":300,\"created_at\":\"14-02-2022 20:10:57\",\"account_no\":39023093,\"user_no\":239391}"
 }   
 ```
 
