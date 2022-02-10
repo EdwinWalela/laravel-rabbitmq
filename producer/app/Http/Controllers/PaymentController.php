@@ -5,14 +5,34 @@ namespace App\Http\Controllers;
 use Anik\Laravel\Amqp\Facades\Amqp;
 use App\Jobs\NewPayment;
 use App\Jobs\PingJob;
+use DateTime;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-    //
+
+		private function getDate($date){
+			$d = DateTime::createFromFormat('d-m-Y H:i:s', $date);
+
+			if ($d === false) {
+					die("Incorrect date string");
+			} else {
+					return $d->getTimestamp();
+			}
+		}
 
 		private function parseJson($data){
-			return $data;
+			// Parse data
+			$body = json_decode($data,true);
+
+			$parsed = [
+				"amount" =>$body["amount"],
+				"created_at"=>$this->getDate($body["timestamp"]),
+				"account_number" =>$body["account_no"],
+				"user_id"=>$body["user_no"]
+			];
+			
+			return $parsed;
 		}
 
     public function create(){
@@ -20,20 +40,18 @@ class PaymentController extends Controller
 			// Extract json body
 			$payload = json_decode(request()->getContent(), true);
 
-			// Format data
-			$parsedJson = $this->parseJson($payload);
+			// Parse data
+			$parsedJson = $this->parseJson($payload["data"]);
 
 			// Publish formated data
-			Amqp::publish($parsedJson);
+			Amqp::publish(json_encode($parsedJson));
+
+			error_log($parsedJson["account_number"]);
 			
 			$res = [
-				"msg"=>"ok"
+				"msg"=>"submitted for processing"
 			];
 
 			return($res);
-    }
-
-    public function show(){
-            
     }
 }
