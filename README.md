@@ -1,6 +1,6 @@
 # Rabbit MQ Demo
 
-The project consists of a Produce and Consumer
+The project consists of a Producer and Consumer
 
 ## Setup
 
@@ -13,7 +13,7 @@ Run `docker-compose up`
 Accessed on `localhost:15672`
 
 
-Create queue `payments` and bind queue `payments` to `amq.direct` exchange
+Create queue `payments` and bind it to `amq.direct` exchange
 
 ## Producer
 
