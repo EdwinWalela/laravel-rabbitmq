@@ -22,8 +22,8 @@ return [
                 'class' => AMQPLazySSLConnection::class,
                 'hosts' => [
                     [
-                        'host' => env('AMQP_HOST', 'localhost'),
-                        // 'host' => env('AMQP_HOST', 'rabbitmq'),
+                        // 'host' => env('AMQP_HOST', 'localhost'),
+                        'host' => env('AMQP_HOST', 'rabbitmq'),
                         'port' => env('AMQP_PORT', 5672),
                         'user' => env('AMQP_USER', 'guest'),
                         'password' => env('AMQP_PASSWORD', 'guest'),
