@@ -1,5 +1,7 @@
 # RabbitMQ Demo
 
+Message brokering demo using [RabbitMQ](https://www.rabbitmq.com/)
+
 The project consists of a Producer ~~and Consumer~~
 
 ## Setup
