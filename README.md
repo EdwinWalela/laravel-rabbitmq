@@ -1,4 +1,4 @@
-# Rabbit MQ Demo
+# RabbitMQ Demo
 
 The project consists of a Producer ~~and Consumer~~
 
@@ -8,7 +8,7 @@ Run `docker-compose up`
 
 
 
-## Rabbit MQ Dashboard
+## RabbitMQ Dashboard
 
 Accessed on `localhost:15672`
 
