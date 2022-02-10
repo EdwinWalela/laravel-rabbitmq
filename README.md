@@ -1,6 +1,6 @@
 # Rabbit MQ Demo
 
-The project consists of a Producer and Consumer
+The project consists of a Producer and ~~Consumer~~
 
 ## Setup
 
